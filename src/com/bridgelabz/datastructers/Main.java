@@ -6,6 +6,9 @@ public class Main {
         linkedList1.push(70);
         linkedList1.push(30);
         linkedList1.push(56);
+        linkedList1.add(56);
+        linkedList1.add(30);
+        linkedList1.add(70);
         linkedList1.print();
     }
 }

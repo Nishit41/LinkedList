@@ -22,4 +22,14 @@ public class LinkedList <E>{
             temp= temp.getNext();
         }
     }
+    void  add(E data){
+        Node<E> newnode = new Node<>(data);
+        if(head == null){
+            head = newnode;
+        }
+        else{
+            tail.setNext(newnode);
+            tail = newnode;
+        }
+    }
 }
