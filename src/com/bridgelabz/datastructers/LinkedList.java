@@ -1,60 +1,78 @@
 package com.bridgelabz.datastructers;
 
-public class LinkedList <E>{
+public class LinkedList <E> {
     Node<E> head;
     Node<E> tail;
-    public void push(E key){
+
+    public void push(E key) {
         Node<E> newNode = new Node<>(key);
-        if( head == null){
+        if (head == null) {
             head = newNode;
             tail = newNode;
-        }
-        else{
+        } else {
             newNode.setNext(head);
             head = newNode;
         }
     }
-    public void print(){
+
+    public void print() {
         Node<E> temp = head;
-        while ( temp!= null)
-        {
-            System.out.print(temp.getKey()+" ");
-            temp= temp.getNext();
+        while (temp != null) {
+            System.out.print(temp.getKey() + " ");
+            temp = temp.getNext();
         }
     }
-    void  add(E data){
+
+    void add(E data) {
         Node<E> newnode = new Node<>(data);
-        if(head == null){
+        if (head == null) {
             head = newnode;
-        }
-        else{
+        } else {
             tail.setNext(newnode);
             tail = newnode;
         }
     }
-    void insetElement( E data){
-            Node<E> insertingNode = new Node<>(data);
-            head.setNext(insertingNode);
-            insertingNode.setNext(tail);
-        }
+
+    void insetElement(E data) {
+        Node<E> insertingNode = new Node<>(data);
+        head.setNext(insertingNode);
+        insertingNode.setNext(tail);
+    }
+
     public E pop() {
         E deletedElement = head.getKey();
         head = head.getNext();
         return deletedElement;
     }
+
     public E poplast() {
         E deletedElement = tail.getKey();
         Node<E> temp = head;
-        while(temp.getNext() != tail){
+        while (temp.getNext() != tail) {
             temp = temp.getNext();
         }
-        temp.setNext(null);;
+        temp.setNext(null);
+        ;
         temp = tail;
-        return  deletedElement;
-
+        return deletedElement;
     }
 
+    public Node<E> search(E searchData) {
+        Node<E> temp = head;
+        while (temp != null) {
+            if (temp.getKey().equals(searchData)) {
+                return temp;
+            }
+            temp = temp.getNext();
+        }
+        return null;
     }
+}
+
+
+
+
+
 
 
 
