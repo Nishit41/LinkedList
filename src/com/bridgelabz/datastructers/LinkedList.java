@@ -37,22 +37,6 @@ public class LinkedList <E>{
             head.setNext(insertingNode);
             insertingNode.setNext(tail);
         }
-    public E pop() {
-        E deletedElement = head.getKey();
-        head = head.getNext();
-        return deletedElement;
-    }
-    public E poplast() {
-        E deletedElement = tail.getKey();
-        Node<E> temp = head;
-        while(temp.getNext() != tail){
-            temp = temp.getNext();
-        }
-        temp.setNext(null);;
-        temp = tail;
-        return  deletedElement;
-
-    }
 
     }
 
