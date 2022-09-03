@@ -1,5 +1,7 @@
 package com.bridgelabz.datastructers;
 
+import java.util.Objects;
+
 public class LinkedList <E>{
     Node<E> head;
     Node<E> tail;
@@ -21,5 +23,23 @@ public class LinkedList <E>{
             System.out.print(temp.getKey()+" ");
             temp= temp.getNext();
         }
+    }
+    public Node<E> search(E searchData) {
+        Node<E> temp = head;
+        while (temp != null) {
+            if (temp.getKey().equals(searchData));
+            temp = temp.getNext();
+        }
+        return null;
+    }
+    public boolean insertAfter(E searchData, E insertData) {
+        Node<E> newNode = new Node<>(insertData);
+        Node<E> searchedNode = search(searchData);
+        if (searchedNode != null) {
+            newNode.setNext(searchedNode.getNext());
+            searchedNode.setNext(newNode);
+            return true;
+        }
+        return false;
     }
 }
